@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Monthsary Booklet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Press Start 2P', cursive; /* pixel cute font */
+      background: linear-gradient(to bottom, #8e44ad, #9b59b6); /* purple gradient */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px 20px;
+      text-shadow: 2px 2px #2c003e;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #ff4e70;
+    }
+
+    header p {
+      font-size: 0.8rem;
+      max-width: 600px;
+      margin: 10px auto 0 auto;
+      line-height: 1.6;
+      color: #ffe6f0;
+    }
+
+    .booklet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+
+    .photo-card {
+      width: 250px;
+      margin: 15px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+      background: rgba(0,0,0,0.2);
+      border: 3px solid #ff4e70;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .photo-card.landscape img {
+      width: 100%;
+      height: auto;
+    }
+
+    .photo-card.portrait img {
+      width: auto;
+      height: 250px;
+    }
+
+    .photo-card:hover {
+      transform: scale(1.05);
+      border-color: #ff7aa3;
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 20px;
+      font-size: 0.8rem;
+      color: #ffb6c1;
+      text-shadow: 1px 1px #2c003e;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌹 Happy 4th Monthsary lovelove kooooo 🌹</h1>
+    <p>
+      Every memory, every smile, every moment with you is a treasure. Here’s a little collection of our journey so far, filled with laughter, love, and joy.  
+      Thank you for being you, and thank you for letting me be me.  
+      Here’s to more memories together, my love 🌹
+    </p>
+  </header>
+
+  <div class="booklet" id="booklet"></div>
+
+  <footer>
+    💕 Always choosing you, every day 💕 🌹
+  </footer>
+
+  <script>
+    // All your direct image links
+    const photos = [
+      "https://i.imgur.com/9c8TlN2.jpeg", // example landscape
+      "https://i.imgur.com/js65W8k.jpeg", // example landscape
+      "https://i.imgur.com/wbIPKap.jpeg",
+      "https://i.imgur.com/s6qeQJb.jpeg",
+      "https://i.imgur.com/pk8DRSA.jpeg",
+      "https://i.imgur.com/sZzTozS.jpeg",
+      "https://i.imgur.com/9hHYGB6.jpeg",
+      "https://i.imgur.com/CkUg3dj.jpeg",
+      "https://i.imgur.com/RYfx2ol.jpeg",
+      "https://i.imgur.com/VfMqf3C.jpeg",
+      "https://i.imgur.com/VZheDTU.jpeg",
+      "https://i.imgur.com/ckBgPgv.jpeg",
+      "https://i.imgur.com/2Far5hq.jpeg"
+    ];
+
+    // manually mark landscape photos
+    const landscape = [
+      "https://i.imgur.com/9c8TlN2.jpeg",
+      "https://i.imgur.com/js65W8k.jpeg"
+    ];
+
+    const booklet = document.getElementById('booklet');
+
+    // first add landscape photos
+    landscape.forEach(url => {
+      const card = document.createElement('div');
+      card.className = 'photo-card landscape';
+      const img = document.createElement('img');
+      img.src = url;
+      card.appendChild(img);
+      booklet.appendChild(card);
+    });
+
+    // then add the remaining portrait photos
+    photos.forEach(url => {
+      if (!landscape.includes(url)) {
+        const card = document.createElement('div');
+        card.className = 'photo-card portrait';
+        const img = document.createElement('img');
+        img.src = url;
+        card.appendChild(img);
+        booklet.appendChild(card);
+      }
+    });
+  </script>
+
+</body>
+</html>
